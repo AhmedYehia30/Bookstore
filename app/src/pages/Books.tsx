@@ -223,21 +223,6 @@ export default function Books() {
           ) : defaultQuery ? (
             books.length > 0 ? (
               <>
-                <div className="mb-8 flex flex-col gap-2 text-sm text-[#666666]">
-                  <span>
-                    Showing {books.length} result{books.length === 1 ? "" : "s"}{" "}
-                    for "{defaultQuery}"
-                    {books[0]?.source === "openlibrary"
-                      ? " from Open Library"
-                      : " from Google Books"}
-                    .
-                  </span>
-                  <span>
-                    Open Library suggestions help you refine your query as you
-                    type.
-                  </span>
-                </div>
-
                 <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
                   {books.map((book, index) => (
                     <BookCard
