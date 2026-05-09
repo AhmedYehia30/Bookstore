@@ -139,10 +139,6 @@ export default function Books() {
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-[#1a1a1a] mb-4">
             Search Books
           </h1>
-          <p className="text-[#666666] text-base md:text-lg">
-            Use Open Library suggestions while Google Books stays ready as a
-            fallback for broader results.
-          </p>
         </div>
 
         <div className="max-w-3xl mx-auto" ref={containerRef}>
