@@ -2,11 +2,11 @@ import { Hono } from "hono";
 import { bodyLimit } from "hono/body-limit";
 import type { HttpBindings } from "@hono/node-server";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-import { appRouter } from "./router";
-import { createContext } from "./context";
-import { env } from "./lib/env";
-import { initDb } from "./queries/connection";
-import { createOAuthCallbackHandler } from "./kimi/auth";
+import { appRouter } from "./router.js";
+import { createContext } from "./context.js";
+import { env } from "./lib/env.js";
+import { initDb } from "./queries/connection.js";
+import { createOAuthCallbackHandler } from "./kimi/auth.js";
 import { Paths } from "@contracts/constants";
 
 const app = new Hono<{ Bindings: HttpBindings }>();
@@ -36,7 +36,7 @@ const isVercel = process.env.VERCEL === "1";
 
 if (env.isProduction && !isVercel) {
   const { serve } = await import("@hono/node-server");
-  const { serveStaticFiles } = await import("./lib/vite");
+  const { serveStaticFiles } = await import("./lib/vite.js");
   serveStaticFiles(app);
 
   const port = parseInt(process.env.PORT || "3000");

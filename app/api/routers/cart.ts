@@ -1,18 +1,18 @@
 import { z } from "zod";
 import { eq, and } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
-import { createRouter, publicQuery } from "../middleware";
-import { getDb } from "../queries/connection";
-import { env } from "../lib/env";
+import { createRouter, publicQuery } from "../middleware.js";
+import { getDb } from "../queries/connection.js";
+import { env } from "../lib/env.js";
 import {
   addOrUpdateLocalCartItem,
   clearLocalCart,
   getLocalCartItems,
   removeLocalCartItem,
   updateLocalCartItem,
-} from "../queries/localCart";
+} from "../queries/localCart.js";
 import { cartItems, books } from "@db/schema";
-import { verifyToken } from "../lib/jwt";
+import { verifyToken } from "../lib/jwt.js";
 
 const BOOK_CATEGORIES = [
   "fiction",

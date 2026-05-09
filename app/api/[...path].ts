@@ -1,3 +1,3 @@
-import app from "./boot.js";
+import app from "./boot";
 
 export default app;

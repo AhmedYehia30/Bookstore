@@ -1,17 +1,17 @@
 import { z } from "zod";
 import { eq, desc, and, sql } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
-import { createRouter, publicQuery, adminQuery } from "../middleware";
-import { getDb } from "../queries/connection";
-import { env } from "../lib/env";
+import { createRouter, publicQuery, adminQuery } from "../middleware.js";
+import { getDb } from "../queries/connection.js";
+import { env } from "../lib/env.js";
 import { orders, orderItems, books, cartItems, users } from "@db/schema";
-import { verifyToken } from "../lib/jwt";
+import { verifyToken } from "../lib/jwt.js";
 import {
   createLocalOrder,
   getLocalOrderById,
   getLocalOrders,
-} from "../queries/localOrders";
-import { clearLocalCart, getLocalCartItems } from "../queries/localCart";
+} from "../queries/localOrders.js";
+import { clearLocalCart, getLocalCartItems } from "../queries/localCart.js";
 
 function getAuthUser(headers: Headers) {
   const authHeader = headers.get("x-auth-token") || headers.get("X-Auth-Token");

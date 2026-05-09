@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import type { LocalCartItem } from "./localCart";
+import type { LocalCartItem } from "./localCart.js";
 
 export interface LocalOrderItem {
   id: string;

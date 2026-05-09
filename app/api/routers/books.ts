@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { eq, desc, asc, sql, inArray, and } from "drizzle-orm";
-import { createRouter, publicQuery, adminQuery } from "../middleware";
-import { getDb } from "../queries/connection";
+import { createRouter, publicQuery, adminQuery } from "../middleware.js";
+import { getDb } from "../queries/connection.js";
 import { books } from "@db/schema";
 
 export const booksRouter = createRouter({
@@ -40,7 +40,8 @@ export const booksRouter = createRouter({
         conditions.push(eq(books.isBestseller, true));
       }
 
-      const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
+      const whereClause =
+        conditions.length > 0 ? and(...conditions) : undefined;
 
       let orderBy;
       switch (input.sortBy) {
@@ -188,22 +189,24 @@ export const booksRouter = createRouter({
       const updateSet: Record<string, any> = {};
       if (updateData.title) updateSet.title = updateData.title;
       if (updateData.author) updateSet.author = updateData.author;
-      if (updateData.description) updateSet.description = updateData.description;
+      if (updateData.description)
+        updateSet.description = updateData.description;
       if (updateData.category) updateSet.category = updateData.category as any;
-      if (updateData.price !== undefined) updateSet.price = updateData.price.toString();
+      if (updateData.price !== undefined)
+        updateSet.price = updateData.price.toString();
       if (updateData.stock !== undefined) updateSet.stock = updateData.stock;
       if (updateData.coverImage) updateSet.coverImage = updateData.coverImage;
       if (updateData.isbn) updateSet.isbn = updateData.isbn;
       if (updateData.publisher) updateSet.publisher = updateData.publisher;
-      if (updateData.publishedYear) updateSet.publishedYear = updateData.publishedYear;
+      if (updateData.publishedYear)
+        updateSet.publishedYear = updateData.publishedYear;
       if (updateData.pages) updateSet.pages = updateData.pages;
-      if (updateData.isFeatured !== undefined) updateSet.isFeatured = updateData.isFeatured;
-      if (updateData.isBestseller !== undefined) updateSet.isBestseller = updateData.isBestseller;
+      if (updateData.isFeatured !== undefined)
+        updateSet.isFeatured = updateData.isFeatured;
+      if (updateData.isBestseller !== undefined)
+        updateSet.isBestseller = updateData.isBestseller;
 
-      await db
-        .update(books)
-        .set(updateSet)
-        .where(eq(books.id, id));
+      await db.update(books).set(updateSet).where(eq(books.id, id));
 
       const updated = await db
         .select()

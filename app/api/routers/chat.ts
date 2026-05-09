@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { createRouter, publicQuery } from "../middleware";
+import { createRouter, publicQuery } from "../middleware.js";
 
 const bookRecommendations: Record<string, string> = {
   fiction:
@@ -47,7 +47,11 @@ export const chatRouter = createRouter({
         response = bookRecommendations.technology;
       } else if (msg.includes("children") || msg.includes("kids")) {
         response = bookRecommendations.children;
-      } else if (msg.includes("self-help") || msg.includes("self help") || msg.includes("improve")) {
+      } else if (
+        msg.includes("self-help") ||
+        msg.includes("self help") ||
+        msg.includes("improve")
+      ) {
         response = bookRecommendations["self-help"];
       } else if (msg.includes("mystery") || msg.includes("thriller")) {
         response = bookRecommendations.mystery;
@@ -55,10 +59,18 @@ export const chatRouter = createRouter({
         response = bookRecommendations.fantasy;
       } else if (msg.includes("romance") || msg.includes("love")) {
         response = bookRecommendations.romance;
-      } else if (msg.includes("recommend") || msg.includes("suggest") || msg.includes("best")) {
+      } else if (
+        msg.includes("recommend") ||
+        msg.includes("suggest") ||
+        msg.includes("best")
+      ) {
         response =
           "Here are some of our most loved books: 'The Midnight Garden' (Fiction), 'Quantum Worlds' (Science), 'The 5 AM Club' (Self-Help), and 'Realm of Dragons' (Fantasy). Each has received outstanding reviews from our readers! What genre interests you most?";
-      } else if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey")) {
+      } else if (
+        msg.includes("hello") ||
+        msg.includes("hi") ||
+        msg.includes("hey")
+      ) {
         response =
           "Hello! Welcome to BookHaven! I'm your AI book assistant. I can help you discover your next great read, suggest books by genre, or answer questions about our collection. What type of books do you enjoy?";
       } else if (msg.includes("thank")) {

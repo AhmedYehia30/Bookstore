@@ -1,22 +1,22 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist/public" }
-    },
-    {
-      "src": "api/[...path].ts",
-      "use": "@vercel/node"
-    }
-  ],
+  "version": 3,
+  "build": {
+    "env": {}
+  },
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/[...path].ts" },
+    { "handle": "filesystem" },
     {
       "src": "/(.*\\.(?:js|css|png|jpg|jpeg|svg|ico|map|json|txt|xml))$",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" },
       "dest": "/dist/public/$1"
     },
     { "src": "/(.*)", "dest": "/dist/public/index.html" }
-  ]
+  ],
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs18.x",
+      "maxDuration": 10
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import { eq, desc, sql, lt } from "drizzle-orm";
 import { z } from "zod";
-import { createRouter, adminQuery } from "../middleware";
-import { getDb } from "../queries/connection";
+import { createRouter, adminQuery } from "../middleware.js";
+import { getDb } from "../queries/connection.js";
 import { books, orders, users } from "@db/schema";
 
 export const adminRouter = createRouter({
@@ -121,9 +121,7 @@ export const adminRouter = createRouter({
         revenue: sql<string>`COALESCE(SUM(${orders.total}), 0)`,
       })
       .from(orders)
-      .where(
-        sql`${orders.createdAt} >= DATE_SUB(NOW(), INTERVAL 7 DAY)`
-      )
+      .where(sql`${orders.createdAt} >= DATE_SUB(NOW(), INTERVAL 7 DAY)`)
       .groupBy(sql`DATE(${orders.createdAt})`)
       .orderBy(sql`DATE(${orders.createdAt})`);
 

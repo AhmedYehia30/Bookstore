@@ -1,13 +1,13 @@
 import { z } from "zod";
 import bcrypt from "bcryptjs";
-import { createRouter, publicQuery } from "../middleware";
+import { createRouter, publicQuery } from "../middleware.js";
 import {
   findUserByEmail,
   createUser,
   findUserById,
   updateUserProfile,
-} from "../queries/users";
-import { signToken, verifyToken } from "../lib/jwt";
+} from "../queries/users.js";
+import { signToken, verifyToken } from "../lib/jwt.js";
 import { TRPCError } from "@trpc/server";
 
 export const customAuthRouter = createRouter({
