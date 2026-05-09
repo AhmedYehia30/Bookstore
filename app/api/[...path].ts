@@ -1,3 +1,3 @@
-import app from "./boot";
+import app from "./boot.ts";
 
 export default app;
