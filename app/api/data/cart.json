@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "bookId": "Tales from a not-so-popular party girl:Rachel Renée Russell",
+    "quantity": 1,
+    "createdAt": "2026-05-09T13:46:34.324Z",
+    "book": {
+      "id": "Tales from a not-so-popular party girl:Rachel Renée Russell",
+      "title": "Tales from a not-so-popular party girl",
+      "author": "Rachel Renée Russell",
+      "price": "17.99",
+      "coverImage": "https://covers.openlibrary.org/b/id/8378455-L.jpg",
+      "stock": null
+    }
+  }
+]

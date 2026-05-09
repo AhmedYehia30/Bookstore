@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "name": "ahmed",
+    "email": "ahmedyehya781@gmail.com",
+    "password": "$2b$10$9iOIaCBD5tRc4n.GGOBW7eIHQSKrPS.SO19zNTKpII4acA80TdZGa",
+    "role": "user",
+    "avatar": null,
+    "address": null,
+    "phone": null,
+    "createdAt": "2026-05-09T13:23:57.606Z"
+  }
+]
