@@ -7,6 +7,8 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
+    "build": "vite build",
+    "vercel-build": "vite build",
     "start": "NODE_ENV=production node dist/boot.js",
     "check": "tsc -b",
     "format": "prettier --write .",
@@ -16,7 +18,7 @@
     "db:push": "drizzle-kit push"
   },
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } },
+  { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist/public" } },
     { "src": "api/**/*.ts", "use": "@vercel/node" }
   ],
   "dependencies": {

@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist/public" }
+    },
+    {
+      "src": "api/[...path].ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/[...path].ts" },
+    { "src": "/(.*\\.(?:js|css|png|jpg|jpeg|svg|ico|map|json|txt|xml))$", "dest": "/dist/public/$1" },
+    { "src": "/(.*)", "dest": "/dist/public/index.html" }
+  ]
+}
