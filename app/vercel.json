@@ -13,7 +13,10 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/[...path].ts" },
-    { "src": "/(.*\\.(?:js|css|png|jpg|jpeg|svg|ico|map|json|txt|xml))$", "dest": "/dist/public/$1" },
+    {
+      "src": "/(.*\\.(?:js|css|png|jpg|jpeg|svg|ico|map|json|txt|xml))$",
+      "dest": "/dist/public/$1"
+    },
     { "src": "/(.*)", "dest": "/dist/public/index.html" }
   ]
 }

@@ -18,8 +18,17 @@
     "db:push": "drizzle-kit push"
   },
   "builds": [
-  { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist/public" } },
-    { "src": "api/**/*.ts", "use": "@vercel/node" }
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/public"
+      }
+    },
+    {
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
+    }
   ],
   "dependencies": {
     "@aws-sdk/client-s3": "^3.965.0",
